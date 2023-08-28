@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div class="user-profile">
+        <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
+        <h2>{{ user.username }}</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Join Date: {{ user.join_date }}</p>
+        <h3>Interaction History</h3>
+        <ul>
+            <li>Sent Messages: {{ user_history.sent_messages.count }}</li>
+            <li>Received Messages: {{ user_history.received_messages.count }}</li>
+            <li>Uploaded PDFs: {{ user_history.uploaded_pdfs.count }}</li>
+        </ul>
+    </div>
+</body>
+</html>
