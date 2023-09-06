@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat with PDF App</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="container">
+          <h1 class="logo"><a href="#">Digi Learn</a></h1>
+          <ul class="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Add the webcam container within the appropriate section or div -->
+    <section class="webcam">
+      <div class="container">
+        <h2>Facial Recognition</h2>
+        <div id="webcam-container"></div>
+        <div id="label-container"></div>
+      </div>
+    </section>
+
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <h2>
+            Welcome to
+            <span class="animate-text" data-text="Digi Learn">Digi Learn</span>
+          </h2>
+          <p>Empower your learning with our chat-based PDF app.</p>
+          <a href="#" class="btn-primary" id="get-started-button"
+            >Get Started</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="feature">
+          <div class="feature-item">
+            <i class="fas fa-check"></i>
+            <h3>Interactive PDF Chat</h3>
+            <p>Engage in real-time discussions within your PDF documents.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-share-alt"></i>
+            <h3>Easy Document Sharing</h3>
+            <p>Effortlessly share and collaborate on PDFs with your team.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-users"></i>
+            <h3>Collaborative Learning</h3>
+            <p>Enhance your learning experience through teamwork.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing">
+      <div class="container">
+        <h2>Our Pricing Plans</h2>
+        <div class="pricing-cards">
+          <div class="pricing-card">
+            <h3>Basic</h3>
+            <p>Perfect for individuals</p>
+            <h4>$9/month</h4>
+            <ul>
+              <li>Interactive PDF chat</li>
+              <li>Limited document sharing</li>
+              <li>Basic support</li>
+            </ul>
+            <a href="#" class="btn-pricing">Choose Plan</a>
+          </div>
+          <div class="pricing-card">
+            <h3>Pro</h3>
+            <p>Great for small teams</p>
+            <h4>$19/month</h4>
+            <ul>
+              <li>Interactive PDF chat</li>
+              <li>Unlimited document sharing</li>
+              <li>Premium support</li>
+            </ul>
+            <a href="#" class="btn-pricing">Choose Plan</a>
+          </div>
+          <div class="pricing-card">
+            <h3>Enterprise</h3>
+            <p>For large organizations</p>
+            <h4>Contact Us</h4>
+            <ul>
+              <li>Custom solutions</li>
+              <li>Advanced features</li>
+              <li>Dedicated support</li>
+            </ul>
+            <a href="#" class="btn-pricing">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>
+          Have questions or need assistance? Feel free to get in touch with us.
+        </p>
+        <div class="contact-form">
+          <form action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-contact">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Digi Learn. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <script type="text/javascript">
+      function generateToken() {
+        // Generate a random token (you can customize this)
+        const token = Math.random().toString(36).substr(2); // Example: "1x9jk9ks2p"
+
+        // Store the token in local storage
+        // localStorage.setItem("token", token);
+
+        return token;
+      }
+
+      function startTeachableMachine() {
+        const URL = "https://teachablemachine.withgoogle.com/models/0NTJWlNez/";
+
+        let model, webcam, labelContainer, maxPredictions;
+
+        // Load the image model and setup the webcam
+        async function init() {
+          const token = generateToken();
+          const modelURL = URL + "model.json";
+          const metadataURL = URL + "metadata.json";
+          model = await tmImage.load(modelURL, metadataURL);
+          maxPredictions = model.getTotalClasses();
+
+          const flip = true; // whether to flip the webcam
+          webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+          await webcam.setup(); // request access to the webcam
+          await webcam.play();
+          window.requestAnimationFrame(loop);
+
+          // append elements to the DOM
+          document
+            .getElementById("webcam-container")
+            .appendChild(webcam.canvas);
+          labelContainer = document.getElementById("label-container");
+          for (let i = 0; i < maxPredictions; i++) {
+            // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+          }
+        }
+
+        async function loop() {
+          webcam.update(); // update the webcam frame
+          await predict();
+          window.requestAnimationFrame(loop);
+        }
+
+        // run the webcam image through the image model
+        async function predict() {
+          const prediction = await model.predict(webcam.canvas);
+          const malePrediction = prediction[0].probability; // Assuming "male" is the first class
+
+          if (malePrediction > 0.5) {
+            alert("Success! Redirecting...");
+
+            window.location.href = "http://localhost:8501/";
+            localStorage.setItem("token", token);
+          } else {
+            // Show error message
+            alert("Opps, Authentication failed!!!.");
+          }
+        }
+
+        init();
+      }
+
+      document
+        .getElementById("get-started-button")
+        .addEventListener("click", startTeachableMachine);
+    </script>
+  </body>
+</html>

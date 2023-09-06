@@ -1,0 +1,341 @@
+/* Reset some default styles */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.hero {
+    background-color: #f0f0f0; /* Decent background color */
+    text-align: center;
+    color: #333; /* Text color on the hero section */
+    padding: 100px 0;
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #ff9900;
+}
+
+/* 3D animation effect */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff6600, #ff9900);
+    opacity: 0.3;
+    transform: skewY(-5deg);
+    z-index: -1;
+}
+
+.hero h2 span {
+    position: relative;
+}
+/* Add this CSS code to your styles.css file */
+/* Add this CSS code to your styles.css file */
+.animate-text {
+    display: inline-block;
+    position: relative;
+    font-size: 2rem; /* Adjust the font size as needed */
+    text-transform: uppercase; /* Make the text uppercase */
+}
+
+.animate-text::before {
+    content: attr(data-text); /* Use the data-text attribute for the text content */
+    position: absolute;
+    top: 2px; /* Adjust the vertical positioning */
+    left: 2px; /* Adjust the horizontal positioning */
+    color: #fff; /* Set the color of the 3D effect */
+    background: #000; /* Set the background color of the 3D effect */
+    transform: perspective(400px) rotateX(10deg) rotateY(10deg); /* Apply 3D rotation */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transitions */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add a subtle shadow */
+}
+
+/* Hover effect for the 3D text */
+.animate-text:hover::before {
+    transform: perspective(800px) rotateX(0deg) rotateY(0deg); /* Change the perspective and reset the rotation on hover */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6); /* Enhance the shadow on hover */
+}
+
+
+.hero h2 span::before {
+    /* background-color: #655eef; */
+    /* content: "Digi Learn"; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ff6600; /* 3D text color */
+    transform: translate(-5px, -5px); /* Adjust this for the 3D effect */
+}
+
+
+/* Add this CSS code to your styles.css file */
+/* Update this CSS code in your styles.css file */
+/* Update this CSS code in your styles.css file */
+.features {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.feature {
+    display: flex;
+    justify-content: space-around; /* Distribute items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+}
+
+.feature-item {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px; /* Add some spacing between feature items */
+}
+
+.feature-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+
+/* Add this CSS code to your styles.css file */
+.pricing {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+.pricing-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1;
+}
+
+.pricing-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.pricing-card p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.pricing-card h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.pricing-card ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.btn-pricing {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-pricing:hover {
+    background-color: #0056b3;
+}
+
+
+/* Add this CSS code to your styles.css file */
+.contact {
+    background-color: #007bff;
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.contact p {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.contact-form form {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #fff;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #fff;
+}
+
+.btn-contact {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-contact:hover {
+    background-color: #fff;
+    color: #007bff;
+}
+
+/* Add this CSS code to your styles.css file */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
