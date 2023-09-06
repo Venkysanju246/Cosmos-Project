@@ -133,7 +133,7 @@ with st.sidebar:
     new_chat_button_key = f"new_chat_button_{st.session_state.get('button_count', 0)}"
     
     if st.button("New Chat", key=new_chat_button_key):
-        # Store the current chat under a unique name
+        # Store the current chat under a unique names
         if st.session_state.chat_history:
             chat_count = len(saved_chats)
             chat_name = f"Chat_{chat_count + 1}"
