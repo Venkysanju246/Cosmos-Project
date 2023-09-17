@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>****Pdf Reader****</h1>
+  <h1>***Digi Learn***</h1>
 
   <h2 align="center">*Description* </h2>
 <h3>
