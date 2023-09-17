@@ -27,7 +27,7 @@
 <p  align="center">Enjoy a sleek and intuitive chat interface that enhances your experience while working with PDFs. PDF Talker's user-friendly design ensures a seamless interaction.</p>
 
  <h2 align="center">Overview</h2>
-  <h5 align="center">Deployed Link: [https://64fa8c7aa1f72c1e00d37f42--dynamic-mousse-b24819.netlify.app/](https://courageous-manatee-fef8c0.netlify.app/) </h5>
+  <h5 align="center">Deployed Link: (https://courageous-manatee-fef8c0.netlify.app/) </h5>
 
 
 <h3 align="center">**SOME GLIMPS**</h3>
