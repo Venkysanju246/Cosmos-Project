@@ -30,7 +30,7 @@
   <h5 align="center">Deployed Link: (https://courageous-manatee-fef8c0.netlify.app/) </h5>
 
 
-<h3 align="center">**SOME GLIMPS**</h3>
+<h3 align="center">**SOME GLIMPS of Digi Learn Project**</h3>
 
 ![Screenshot (340)](https://github.com/Venkysanju246/Cosmos-Project/assets/115461797/25c1a096-5e62-4e17-8bef-ba9c70ad8078)
 ![Screenshot (341)](https://github.com/Venkysanju246/Cosmos-Project/assets/115461797/44a8744a-55a1-4d51-badc-92582c21307c)
