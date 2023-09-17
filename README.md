@@ -8,7 +8,7 @@
 <p>Digi Learn is a cutting-edge application designed to revolutionize the way you interact with PDF documents. Say goodbye to the days of passively reading through lengthy PDFs and struggling to locate specific information. With PDFChat Pro, you can now engage in dynamic conversations with your PDFs, extract valuable insights, and find answers to your questions effortlessly.</p>
 
 <h2 align="center">*Tech Stack*</h2>
-<p align="center">HTML | CSS | PYTHON | EMBEDDING | LANGCHAIN | STREAMLIT</p>
+<p align="center">HTML | CSS | PYTHON | LANGCHAIN | STREAMLIT</p>
 
 <h2 align="center"> Database </h2>
 <p align="center">MongoDB Atlas </p>
